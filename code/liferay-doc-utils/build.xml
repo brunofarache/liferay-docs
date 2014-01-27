@@ -6,6 +6,7 @@
 	<property name="dist.dir" value="${project.dir}/dist" />
 	<property name="lib.dir" value="${project.dir}/lib" />
 	<property name="src.dir" value="${project.dir}/src" />
+	<property name="deploy.dir" value="${project.dir}/../../lib" />
 
 	<path id="lib.classpath">
 		<fileset dir="${lib.dir}" includes="*.jar" />
@@ -46,7 +47,7 @@
 		/>
 	</target>
 
-    <target name="dist" depends="compile"
+    <target name="dist" depends="clean, compile"
 	description="compiles the code and creates a runnable JAR file for the project">
 		<mkdir dir="${dist.dir}" />
         <jar destfile="${dist.dir}/liferay-doc-utils.jar"
@@ -60,8 +61,8 @@
         </jar>
     </target>
 
-    <target name="deploy" depends="dist">
-		<copy file="${dist.dir}/liferay-doc-utils.jar" todir="../../lib"/>
+	<target name="deploy" depends="dist" description="deploys liferay-doc-utils.jar to liferay-docs/lib">
+		<copy file="${dist.dir}/liferay-doc-utils.jar" tofile="${deploy.dir}/liferay-doc-utils.jar"/>
 	</target>
 
 </project>
