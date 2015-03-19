@@ -3,7 +3,7 @@
 The first order of business is to retrieve the guestbooks from the portlet and 
 display them in the app's navigation drawer. Recall that the app you created in 
 the first series of articles in this learning path contains a navigation drawer 
-that slides out from the left side of the screen. Currently, it contains simple 
+that slides out from the left side of the screen. Currently, it scontains simple 
 placeholders that are in dire need of replacement. 
 
 ![Figure 1: The placeholders currently in the navigation drawer.](../../images/android-guestbook-first-run.png)
@@ -231,6 +231,8 @@ so it can be used throughout the UI, independent of any activity or fragment
 instance. Create this variable in the `MainActivity` class as follows: 
 
     public static List<GuestbookModel> _guestbooks = new ArrayList<GuestbookModel>();
+
+Nick: I'm not sure why _guestbook needs to be static, it shouldn't be required.
 
 The app displays a list of items in the drawer by using [`ListView`](http://developer.android.com/guide/topics/ui/layout/listview.html) 
 with an [adapter](http://developer.android.com/guide/topics/ui/declaring-layout.html#AdapterViews). 
